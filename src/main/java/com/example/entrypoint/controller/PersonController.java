@@ -44,7 +44,7 @@ public final class PersonController {
 
     @GetMapping(value = "{id}")
     public Person getOne(@PathVariable("id") final String id) {
-        final ScopedSpan s = this.tracer.startScopedSpan();
+        final ScopedSpan s = this.tracer.startScopedSpan("get one person");
         try {
             s.annotate("calling person service");
             s.tag("Service1", "value1");
